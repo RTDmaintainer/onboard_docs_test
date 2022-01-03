@@ -1,13 +1,13 @@
-Welcome to Lumache's documentation!
-===================================
+Onboard Data Python API documentation
+=====================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+This is the official documentation for Onboard Data's Python API client. This client provides an intuitive interface for the full set of ...
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+   >>> import thing
+   >>> thing.test()
+   ['this is being returned']
+
+For installation instructions, and to get set up with API access, refer to :ref:`Initial Setup`.
 
 .. note::
 
@@ -18,6 +18,7 @@ Contents
 
 .. toctree::
 
-   usage
-   api
-   spaces
+   Initial Setup
+   Querying Data Model
+   Querying Building-Specific Data
+   Querying Time-Series Data
