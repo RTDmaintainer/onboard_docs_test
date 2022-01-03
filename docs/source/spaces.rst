@@ -6,9 +6,21 @@ spaces
 Installation
 ------------
 
-To use Lumache, first install it using pip:
+Test 1 (code-block Python):
 
 .. code-block:: Python
+   >>> import lumache
+   >>> lumache.get_random_ingredients()
+   ['shells', 'gorgonzola', 'parsley']
+
+Test 2:
+.. code-block:: python
+   >>> import lumache
+   >>> lumache.get_random_ingredients()
+   ['shells', 'gorgonzola', 'parsley']
+
+Test 3:
+.. code-block:: console
    >>> import lumache
    >>> lumache.get_random_ingredients()
    ['shells', 'gorgonzola', 'parsley']
