@@ -7,7 +7,6 @@ Installation
 ------------
 
 Test 1 (code-block Python):
-
 .. code-block:: Python
    >>> import lumache
    >>> lumache.get_random_ingredients()
