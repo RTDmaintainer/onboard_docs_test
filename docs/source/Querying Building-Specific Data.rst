@@ -1,7 +1,5 @@
-API
-===
+Querying Building-Specific Data
+===============================
 
 .. autosummary::
    :toctree: generated
-
-   lumache
