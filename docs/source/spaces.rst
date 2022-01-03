@@ -20,8 +20,8 @@ Test 2:
 
 Test 3:
 .. code-block:: console
-   >>> import lumache
-   >>> lumache.get_random_ingredients()
+   import lumache
+   lumache.get_random_ingredients()
    ['shells', 'gorgonzola', 'parsley']
 
 Creating recipes
