@@ -30,5 +30,6 @@ For example:
 
 >>> import lumache
 >>> lumache.get_random_ingredients()
+['test']
 ['shells', 'gorgonzola', 'parsley']
 
