@@ -5,6 +5,7 @@ This package provides Python bindings to `Onboard Data's <https://onboarddata.io
 
    >>> import onboard.client
    >>> thing.test()
+   
    # Query current temperature for given sensor
    >>> for i in range(1,2):
    >>>     print("hey!")
