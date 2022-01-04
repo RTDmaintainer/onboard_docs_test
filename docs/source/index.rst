@@ -38,6 +38,8 @@ For example, we can retrieve the last week of temperature data from all Zone Tem
     timeseries_query = TimeseriesQuery(point_ids = selection['points'], start = start, end = end)
     sensor_data = points_df_from_streaming_timeseries(client.stream_point_timeseries(timeseries_query))
 
+.. image:: plot.png
+
 For installation instructions, and to get set up with API access, refer to :ref:`Initial Setup`_.
 
 .. note::
