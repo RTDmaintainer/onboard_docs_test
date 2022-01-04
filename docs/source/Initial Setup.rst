@@ -32,4 +32,3 @@ Once you have a key, data access is explicitly granted by attaching one or more 
 
    # Verify access & connectivity
    >>> client.whoami()
-   

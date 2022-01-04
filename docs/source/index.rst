@@ -10,6 +10,9 @@ Onboard Data Python API documentation
 .. image:: https://shields.io/pypi/pyversions/onboard.client.svg
     :target: https://pypi.org/project/onboard.client/
 
+.. image:: https://camo.githubusercontent.com/3656aeb94541a2464bac21509c34b7942cf127702885cd6ce0002120d2bfa189/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f6f6e626f6172642e636c69656e74
+    :target: https://camo.githubusercontent.com/3656aeb94541a2464bac21509c34b7942cf127702885cd6ce0002120d2bfa189/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f6f6e626f6172642e636c69656e74
+
 This package provides Python bindings to `Onboard Data's <https://onboarddata.io/>`_ building data API, allowing easy and lightweight access to building data.
 
    >>> import onboard.client
