@@ -14,6 +14,7 @@ conda:
 
 or by cloning our `Github repo <https://github.com/onboard-data/client-py/>`_:
 
+.. code-block:: console
    >>> git clone git@github.com:onboard-data/client-py
 
 Please note, the client requires Python >= 3.7.
@@ -25,6 +26,7 @@ You'll need an API key or existing account in order to use this client. If you d
 
 Once you have a key, data access is explicitly granted by attaching one or more 'scopes' to the key. Our endpoints are grouped by scope on the `swagger documentation viewer <https://api.onboarddata.io/doc/>`_.
 
+.. code-block:: python
    # Set up Onboard Client
    >>> from onboard.client import OnboardClient
    >>> client = OnboardClient(api_key='')
