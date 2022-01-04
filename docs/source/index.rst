@@ -15,7 +15,7 @@ Onboard Data Python API documentation
 
 This package provides Python bindings to `Onboard Data's <https://onboarddata.io/>`_ building data API, allowing easy and lightweight access to building data.
 
-.. codeblock:: python
+.. code-block:: python
 
     import onboard.client
     thing.test()
@@ -73,7 +73,7 @@ For installation instructions, and to get set up with API access, refer to :ref:
 
 .. note::
 
-   While we are committed to backwards-compatibility, this project is under active development. If you discover a feature that would be helpful, or any unexpected behavior, please contact us at xxx&onboarddata.io
+   While we are committed to backwards-compatibility, this project is under active development. If you discover a feature that would be helpful, or any unexpected behavior, please contact us at xxx@onboarddata.io
 
 Contents
 --------
