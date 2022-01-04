@@ -131,3 +131,5 @@ Here, we set the timestamp as the index and forward fill the data for plotting
     >>> # Adding some formatting
     >>> fig.set_ylabel('Farenheit',fontdict={'fontsize':15})
     >>> fig.set_xlabel('time stamp',fontdict={'fontsize':15})
+
+.. image:: plot.png
