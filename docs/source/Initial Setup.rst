@@ -8,10 +8,6 @@ The Python Onboard API client is available to install through pip:
 
    >>> pip install onboard.client
 
-conda:
-
-   >>> TO DO
-
 or by cloning our `Github repo <https://github.com/onboard-data/client-py/>`_:
 
 .. code-block:: console
