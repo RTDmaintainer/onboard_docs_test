@@ -43,7 +43,6 @@ Contents
    Initial Setup
    Querying Data Model
    Querying Building-Specific Data
-   Querying Time-Series Data
 
 License
 -------
