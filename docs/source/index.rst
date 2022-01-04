@@ -2,11 +2,13 @@ Onboard Data Python API documentation
 =====================================
 
 .. image:: https://readthedocs.org/projects/onboard-docs-test/badge/?version=latest
-:target: https://onboard-docs-test.readthedocs.io/en/latest/?badge=latest
-:alt: Documentation Status
+    :target: https://onboard-docs-test.readthedocs.io/en/latest/?badge=latest
 
 .. image:: https://badge.fury.io/py/onboard.client.svg
     :target: https://badge.fury.io/py/onboard.client
+
+.. image:: https://shields.io/pypi/pyversions/onboard.client.svg
+    :target: https://pypi.org/project/onboard.client/
 
 This package provides Python bindings to `Onboard Data's <https://onboarddata.io/>`_ building data API, allowing easy and lightweight access to building data.
 
