@@ -18,29 +18,16 @@ This package provides Python bindings to `Onboard Data's <https://onboarddata.io
 .. code-block:: python
 
     import onboard.client
-    thing.test()
-
-    # Query current temperature for given sensor
-    for i in range(1,2):
-        print("hey!")
-    some impressive example here
-    ['this is being returned']
-    # retrieve the past 6 hours of data for sensors measuring CO2 ppm
     from datetime import datetime, timezone, timedelta
     from onboard.client.models import PointSelector, TimeseriesQuery, PointData
     from typing import List
+    client = OnboardClient(api_key='your-api-key-here')
 
-    query = PointSelector()
-    query.point_types = ['Zone Carbon Dioxide']
-    query.buildings = ['Office Building']  # one of the example buildings available in the sandbox
-    selection = client.select_points(query)
-    end = datetime.utcnow().replace(tzinfo=timezone.utc)
-    start = end - timedelta(hours=6)
-
-    timeseries_query = TimeseriesQuery(point_ids=selection['points'], start=start, end=end)  # Or `TimeseriesQuery(selector=query, ...)`
-
-    sensor_metadata = client.get_points_by_ids(selection['points'])
-    sensor_data: List[PointData] = list(client.stream_point_timeseries(timeseries_query))
+    # retrieve the past 7 days of data for sensors measuring xxx in the example building 'Office Building'
+    start = datetime.now(pytz.utc) - timedelta(days=7)
+    end = datetime.now(pytz.utc)
+    timeseries_query = TimeseriesQuery(point_ids = selection['points'], start = start, end = end)
+    sensor_data = points_df_from_streaming_timeseries(client.stream_point_timeseries(timeseries_query))
 
 For installation instructions, and to get set up with API access, refer to :ref:`Initial Setup`.
 
@@ -59,6 +46,7 @@ Contents
    Querying Time-Series Data
 
 License
+-------
 
 Copyright 2018-2021 Onboard Data Inc
 

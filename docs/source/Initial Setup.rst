@@ -24,7 +24,7 @@ You'll need an API key or existing account in order to use this client. If you d
 Once you have a key, data access is explicitly granted by attaching one or more 'scopes' to the key. Our endpoints are grouped by scope on the `swagger documentation viewer <https://api.onboarddata.io/doc/>`_.
 
    >>> from onboard.client import OnboardClient
-   >>> client = OnboardClient(api_key='')
-
-   # Verify access & connectivity
+   >>> client = OnboardClient(api_key='your-api-key-here')
+   >>>
+   >>> # Verify access & connectivity
    >>> client.whoami()
