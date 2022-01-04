@@ -15,17 +15,26 @@ Onboard Data Python API documentation
 
 This package provides Python bindings to `Onboard Data's <https://onboarddata.io/>`_ building data API, allowing easy and lightweight access to building data.
 
+For example, we can retrieve the last week of temperature data from all Zone Temperature points associated with FCUs in the Laboratory building:
+
 .. code-block:: python
 
+    import pandas as pd
     import onboard.client
     from datetime import datetime, timezone, timedelta
     from onboard.client.models import PointSelector, TimeseriesQuery, PointData
     from typing import List
     client = OnboardClient(api_key='your-api-key-here')
 
-    # retrieve the past 7 days of data for sensors measuring xxx in the example building 'Office Building'
+    query = PointSelector()
+    query.point_types     = ['Zone Temperature'] # can list multiple
+    query.equipment_types = ['fcu']
+    query.buildings       = ['Laboratory']
+    selection = client.select_points(query)
+
     start = datetime.now(pytz.utc) - timedelta(days=7)
-    end = datetime.now(pytz.utc)
+    end   = datetime.now(pytz.utc)
+
     timeseries_query = TimeseriesQuery(point_ids = selection['points'], start = start, end = end)
     sensor_data = points_df_from_streaming_timeseries(client.stream_point_timeseries(timeseries_query))
 

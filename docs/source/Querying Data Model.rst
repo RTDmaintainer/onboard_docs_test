@@ -36,6 +36,3 @@ We can extract the metadata associated with each tag in our data model like so:
 
    >>> # Get all tags and their definitions from the Data Model
    >>> pd.DataFrame(client.get_tags())
-
-[Include usage for each, unclear why different]
-[Parallelism: why are commands different? Why is only equipment json_normalized?]
