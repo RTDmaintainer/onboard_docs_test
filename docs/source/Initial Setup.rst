@@ -30,4 +30,4 @@ Once you have a key, data access is explicitly granted by attaching one or more 
    >>> client.whoami()
    {'result': 'ok', 'apiKeyInHeader': True, ... 'authLevel': 4}
 
-You can also retrieve a list of your currently authorized scopes with :code:`client.whoami()['apiKeyScopes']`.`
+You can also retrieve a list of your currently authorized scopes with :code:`client.whoami()['apiKeyScopes']`.
