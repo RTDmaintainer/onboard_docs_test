@@ -45,3 +45,11 @@ We can extract the metadata associated with each tag in our data model like so:
 
    >>> # Get all tags and their definitions from the Data Model
    >>> pd.DataFrame(client.get_tags())
+         id        name                                         definition def_source                                            def_url
+   0    120     battery  A container that stores chemical energy that c...      brick  https://brickschema.org/ontology/1.1/classes/B...
+   1    191  exhaustVAV  A device that regulates the volume of air bein...    onboard                                               None
+   2    193         oil  A viscous liquid derived from petroleum, espec...      brick  https://brickschema.org/ontology/1.2/classes/Oil/
+   3    114    fumeHood  A fume-collection device mounted over a work s...      brick  https://brickschema.org/ontology/1.1/classes/F...
+   ...
+
+This returns a dataframe containing definitions for all tags in our data model, with attribution where applicable.
