@@ -49,7 +49,6 @@ For example, here we make a query that returns all the points of the type 'Real 
     >>> query.point_types = ['Real Power', 'Zone Temperature']
     >>> query.buildings = ['Laboratory']
     >>> selection = client.select_points(query)
-    >>> selection
 
 We can add to our query to e.g. further require that returned points must be associated with the 'fcu' equipment type:
 

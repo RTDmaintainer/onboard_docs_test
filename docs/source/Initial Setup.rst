@@ -10,7 +10,7 @@ The Python Onboard API client is available to install through pip:
 
 or by cloning our `Github repo <https://github.com/onboard-data/client-py/>`_:
 
-.. code-block:: console
+.. code-block:: bash
 
    git clone git@github.com:onboard-data/client-py
 
@@ -28,3 +28,6 @@ Once you have a key, data access is explicitly granted by attaching one or more 
    >>>
    >>> # Verify access & connectivity
    >>> client.whoami()
+   {'result': 'ok', 'apiKeyInHeader': True, ... 'authLevel': 4}
+
+You can also retrieve a list of your currently authorized scopes with :code:`client.whoami()['apiKeyScopes']`.`
