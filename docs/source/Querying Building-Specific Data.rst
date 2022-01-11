@@ -46,7 +46,8 @@ In order to query specific points, first we need to import the PointSelector cla
 
 There are multiple ways to select points using the PointSelector. The user can select all the points that are associated with one or more lists containing any of the following::
 
-    'organizations', 'buildings', 'point_ids', 'point_names', 'point_hashes', 'point_ids', 'point_names', 'point_topics', 'equipment', 'equipment_types'
+    'organizations', 'buildings', 'point_ids', 'point_names', 'point_hashes',
+    'point_ids', 'point_names', 'point_topics', 'equipment', 'equipment_types'
 
 For example, here we make a query that returns all the points of the type 'Real Power' OR of the type 'Zone Temperature' that belong to the 'Laboratory' building:
 
@@ -84,12 +85,12 @@ We can get more information about these points by calling the function get_point
 
 Based on the information about these points, we can observe that none of the points of our list belongs to the point type 'Real Power', but only to the point type 'Zone Temperature'
 
-sensor_metadata_df now contains a dataframe with rows for each point, and the following columns:
+sensor_metadata_df now contains a dataframe with rows for each point, and the following columns::
 
-    >>> ['id', 'building_id', 'last_updated', 'first_updated', 'device',
-    >>>  'network_device', 'objectId', 'name', 'description', 'units',
-    >>>  'tagged_units', 'raw_unit_id', 'value', 'type', 'point_type_id',
-    >>>  'measurement_id', 'datasource_hash', 'topic', 'state_text', 'equip_id']
+    'id', 'building_id', 'last_updated', 'first_updated', 'device',
+    'network_device', 'objectId', 'name', 'description', 'units',
+    'tagged_units', 'raw_unit_id', 'value', 'type', 'point_type_id',
+    'measurement_id', 'datasource_hash', 'topic', 'state_text', 'equip_id']
 
 Exporting Data to .csv
 ---------------------
