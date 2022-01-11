@@ -1,8 +1,8 @@
 Querying Building-Specific Data
 ===============================
 
-Querying Building Equipment
----------------------------
+Querying Equipment
+------------------
 
 Using the API, we can retrieve the data from all the buildings that belong to our organization:
 
@@ -19,7 +19,21 @@ The first column of this dataframe ('id') contains the building identifier numbe
 In order to retrieve the equipment for a particular building (e.g. Laboratory, id: 428), we use client.get_building_equipment():
 
     >>> # Get a list of all equipment in a building
-    >>> pd.DataFrame(client.get_building_equipment(428))
+    >>> all_equipment = pd.DataFrame(client.get_building_equipment(428))
+    >>> all_equipment
+        id  building_id      ...  points                                             tags
+    0    27293          428  ...  [{'id': 291722, 'building_id': 428, 'last_upda...             [crac, hvac]
+    1    27294          428  ...  [{'id': 290774, 'building_id': 428, 'last_upda...  [fan, hvac, exhaustFan]
+    2    27295          428  ...  [{'id': 289684, 'building_id': 428, 'last_upda...  [fan, hvac, exhaustFan]
+    3    27296          428  ...  [{'id': 289653, 'building_id': 428, 'last_upda...  [fan, hvac, exhaustFan]
+    ...
+    >>> all_equipment.columns
+    ['id', 'building_id', 'equip_id', 'suffix', 'equip_type_name',
+       'equip_type_id', 'equip_type_abbr', 'equip_type_tag',
+       'equip_subtype_name', 'equip_subtype_id', 'equip_subtype_tag',
+       'flow_order', 'floor_num_physical', 'floor_num_served',
+       'area_served_desc', 'equip_dis', 'parent_equip', 'child_equip',
+       'points', 'tags']
 
 Querying Specific Points
 ------------------------
@@ -30,18 +44,9 @@ In order to query specific points, first we need to import the PointSelector cla
     >>> from onboard.client.models import PointSelector
     >>> query = PointSelector()
 
-There are multiple ways to select points using the PointSelector. The user can select all the points that are associated with one or more lists containing any of the following:
+There are multiple ways to select points using the PointSelector. The user can select all the points that are associated with one or more lists containing any of the following::
 
-    organizations
-    buildings
-    point_ids
-    point_names
-    point_hashes
-    point_ids
-    point_names
-    point_topics
-    equipment
-    equipment_types
+    'organizations', 'buildings', 'point_ids', 'point_names', 'point_hashes', 'point_ids', 'point_names', 'point_topics', 'equipment', 'equipment_types'
 
 For example, here we make a query that returns all the points of the type 'Real Power' OR of the type 'Zone Temperature' that belong to the 'Laboratory' building:
 
@@ -72,6 +77,10 @@ We can get more information about these points by calling the function get_point
     >>> # Get Metadata for the sensors you would like to query
     >>> sensor_metadata = client.get_points_by_ids(selection['points'])
     >>> sensor_metadata_df = pd.DataFrame(sensor_metadata)
+    >>> sensor_metadata_df
+        id  building_id     ...  state_text  equip_id
+    0  289575          428  ...        None     27356
+    1  289701          428  ...        None     27357
 
 Based on the information about these points, we can observe that none of the points of our list belongs to the point type 'Real Power', but only to the point type 'Zone Temperature'
 

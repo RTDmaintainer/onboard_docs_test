@@ -19,9 +19,13 @@ Please note, the client requires Python >= 3.7.
 Setting up API access
 ---------------------
 
-You'll need an API key or existing account in order to use this client. If you don't have one and would like to start prototyping against an example building please request `a key here <https://onboarddata.io/api-keys/>`_.
+You’ll need an active API Key with the appropriate scopes in order to use this python client.
 
-Once you have a key, data access is explicitly granted by attaching one or more 'scopes' to the key. Our endpoints are grouped by scope on the `swagger documentation viewer <https://api.onboarddata.io/doc/>`_.
+If you are an existing Onboard user you can head over to the accounts page and generate a new key and grant scopes for “general” and “buildings:read”.
+
+If you would like to get access to Onboard and start prototyping against an example building please `request access here <https://www.onboarddata.io/contact-us>`_.
+
+You can test if your API key is working with the following code:
 
    >>> from onboard.client import OnboardClient
    >>> client = OnboardClient(api_key='your-api-key-here')
