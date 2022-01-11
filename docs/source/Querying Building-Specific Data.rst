@@ -20,20 +20,13 @@ In order to retrieve the equipment for a particular building (e.g. Laboratory, i
 
     >>> # Get a list of all equipment in a building
     >>> all_equipment = pd.DataFrame(client.get_building_equipment(428))
-    >>> all_equipment
-        id  building_id      ...  points                                             tags
-    0    27293          428  ...  [{'id': 291722, 'building_id': 428, 'last_upda...             [crac, hvac]
-    1    27294          428  ...  [{'id': 290774, 'building_id': 428, 'last_upda...  [fan, hvac, exhaustFan]
-    2    27295          428  ...  [{'id': 289684, 'building_id': 428, 'last_upda...  [fan, hvac, exhaustFan]
-    3    27296          428  ...  [{'id': 289653, 'building_id': 428, 'last_upda...  [fan, hvac, exhaustFan]
+    >>> all_equipment[['id', 'building_id', 'equip_id',  'points', 'tags']]
+            id  building_id        equip_id                                             points                     tags
+    0    27293          428      crac-T-105  [{'id': 291731, 'building_id': 428, 'last_upda...             [crac, hvac]
+    1    27294          428   exhaustFan-01  [{'id': 290783, 'building_id': 428, 'last_upda...  [fan, hvac, exhaustFan]
+    2    27295          428  exhaustFan-021  [{'id': 289684, 'building_id': 428, 'last_upda...  [fan, hvac, exhaustFan]
+    3    27296          428  exhaustFan-022  [{'id': 289655, 'building_id': 428, 'last_upda...  [fan, hvac, exhaustFan]
     ...
-    >>> all_equipment.columns
-    ['id', 'building_id', 'equip_id', 'suffix', 'equip_type_name',
-       'equip_type_id', 'equip_type_abbr', 'equip_type_tag',
-       'equip_subtype_name', 'equip_subtype_id', 'equip_subtype_tag',
-       'flow_order', 'floor_num_physical', 'floor_num_served',
-       'area_served_desc', 'equip_dis', 'parent_equip', 'child_equip',
-       'points', 'tags']
 
 Querying Specific Points
 ------------------------
@@ -78,19 +71,12 @@ We can get more information about these points by calling the function get_point
     >>> # Get Metadata for the sensors you would like to query
     >>> sensor_metadata = client.get_points_by_ids(selection['points'])
     >>> sensor_metadata_df = pd.DataFrame(sensor_metadata)
-    >>> sensor_metadata_df
-        id  building_id     ...  state_text  equip_id
-    0  289575          428  ...        None     27356
-    1  289701          428  ...        None     27357
+    >>> sensor_metadata_df[['id', 'building_id', 'first_updated', 'last_updated', 'type', 'value', 'units']]
+           id  building_id  first_updated  last_updated              type value              units
+    0  289575          428   1.626901e+12  1.641928e+12  Zone Temperature  66.0  degreesFahrenheit
+    1  289701          428   1.626901e+12  1.641928e+12  Zone Temperature  61.0  degreesFahrenheit
 
-Based on the information about these points, we can observe that none of the points of our list belongs to the point type 'Real Power', but only to the point type 'Zone Temperature'
-
-sensor_metadata_df now contains a dataframe with rows for each point, and the following columns::
-
-    'id', 'building_id', 'last_updated', 'first_updated', 'device',
-    'network_device', 'objectId', 'name', 'description', 'units',
-    'tagged_units', 'raw_unit_id', 'value', 'type', 'point_type_id',
-    'measurement_id', 'datasource_hash', 'topic', 'state_text', 'equip_id']
+:code:`sensor_metadata_df` now contains a dataframe with rows for each point. Based on the information about these points, we can observe that none of the points of our list belongs to the point type 'Real Power', but only to the point type 'Zone Temperature'
 
 Exporting Data to .csv
 ---------------------
@@ -124,6 +110,12 @@ Now we are ready to query the time-series data for the points we previously sele
     >>> # Get time series data for the sensors you would like to query
     >>> timeseries_query = TimeseriesQuery(point_ids = selection['points'], start = start, end = end)
     >>> sensor_data = points_df_from_streaming_timeseries(client.stream_point_timeseries(timeseries_query))
+    >>> sensor_data
+                             timestamp 289575 289701
+    0      2022-01-04T19:34:11.741000Z   68.0   None
+    1      2022-01-04T19:34:19.143000Z   None   62.0
+    2      2022-01-04T19:35:12.133000Z   68.0   None
+    ...
 
 This returns a dataframe containing columns for the timestamp and for each requested point.
 
